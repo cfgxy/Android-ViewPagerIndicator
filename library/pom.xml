@@ -5,6 +5,7 @@
 
 	<groupId>com.viewpagerindicator</groupId>
 	<artifactId>library</artifactId>
+    <version>2.2.3-lsmod</version>
 	<name>Android-ViewPagerIndicator</name>
 	<packaging>apklib</packaging>
 
