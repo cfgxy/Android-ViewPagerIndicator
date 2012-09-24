@@ -12,7 +12,7 @@ public class SampleTitlesWithListener extends BaseSampleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.simple_titles);
 
-        mAdapter = new TestFragmentAdapter(getSupportFragmentManager());
+        mAdapter = new TestTitleFragmentAdapter(getSupportFragmentManager());
 
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);

@@ -2,13 +2,11 @@ package com.viewpagerindicator.sample;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import com.viewpagerindicator.TabPageIndicator;
 
-public class SampleTabsStyled extends FragmentActivity {
+public class SampleTabsStyled extends BaseSampleActivity {
     private static final String[] CONTENT = new String[] { "Recent", "Artists", "Albums", "Songs", "Playlists", "Genres" };
 
     @Override
@@ -16,33 +14,33 @@ public class SampleTabsStyled extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.simple_tabs);
 
-        FragmentPagerAdapter adapter = new GoogleMusicAdapter(getSupportFragmentManager());
+        mAdapter = new GoogleMusicAdapter(getSupportFragmentManager());
 
-        ViewPager pager = (ViewPager)findViewById(R.id.pager);
-        pager.setAdapter(adapter);
+        mPager = (ViewPager)findViewById(R.id.pager);
+        mPager.setAdapter(mAdapter);
 
-        TabPageIndicator indicator = (TabPageIndicator)findViewById(R.id.indicator);
-        indicator.setViewPager(pager);
+        mIndicator = (TabPageIndicator)findViewById(R.id.indicator);
+        mIndicator.setViewPager(mPager);
     }
 
-    class GoogleMusicAdapter extends FragmentPagerAdapter {
+    class GoogleMusicAdapter extends TestFragmentAdapter {
         public GoogleMusicAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            return TestFragment.newInstance(CONTENT[position % CONTENT.length]);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return CONTENT[position % CONTENT.length].toUpperCase();
+            return TestFragment.newInstance(SampleTabsStyled.CONTENT[position % SampleTabsStyled.CONTENT.length]);
         }
 
         @Override
         public int getCount() {
-            return CONTENT.length;
+            return SampleTabsStyled.CONTENT.length;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return SampleTabsStyled.CONTENT[position % SampleTabsStyled.CONTENT.length].toUpperCase();
         }
     }
 }

@@ -13,7 +13,7 @@ public class SampleTitlesStyledTheme extends BaseSampleActivity {
         //The look of this sample is set via a style in the manifest
         setContentView(R.layout.simple_titles);
 
-        mAdapter = new TestFragmentAdapter(getSupportFragmentManager());
+        mAdapter = new TestTitleFragmentAdapter(getSupportFragmentManager());
 
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
