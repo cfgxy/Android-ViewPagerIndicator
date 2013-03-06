@@ -86,6 +86,10 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
         addView(mTabLayout, new ViewGroup.LayoutParams(WRAP_CONTENT, MATCH_PARENT));
     }
 
+    protected ViewGroup getTabLayout() {
+      return mTabLayout;
+    }
+
     public void setOnTabReselectedListener(OnTabReselectedListener listener) {
         mTabReselectedListener = listener;
     }
